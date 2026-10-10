@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#06132d">
+<title>A Girl in Blue 💙</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue: #8cc5ff;
+  --deep: #06132d;
+  --white: #f1f6ff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 50% 10%, #153b70 0%, transparent 48%),
+    linear-gradient(160deg, #06132d, #091b3d 60%, #030917);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .55;
+  background-image:
+    radial-gradient(1px 1px at 15% 20%, white 99%, transparent),
+    radial-gradient(2px 2px at 75% 15%, #9bcfff 99%, transparent),
+    radial-gradient(1px 1px at 55% 40%, white 99%, transparent),
+    radial-gradient(1px 1px at 88% 65%, white 99%, transparent),
+    radial-gradient(2px 2px at 25% 78%, #9bcfff 99%, transparent),
+    radial-gradient(1px 1px at 45% 90%, white 99%, transparent);
+  background-size: 240px 240px;
+}
+
+nav, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+nav {
+  padding: 24px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.brand {
+  letter-spacing: 3px;
+  font-size: 10px;
+  color: #c2dcff;
+}
+
+.nav-note {
+  font-size: 10px;
+  color: #8ca6ca;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 22px;
+}
+
+.eyebrow, .section-label {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  color: var(--blue);
+}
+
+.heart {
+  margin: 32px 0 15px;
+  font-size: 34px;
+  color: #9dccff;
+  animation: glow 3s ease-in-out infinite;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 12vw, 90px);
+  line-height: .98;
+  font-weight: 400;
+  margin: 15px 0;
+  letter-spacing: -2px;
+}
+
+h1 em {
+  display: block;
+  color: #91c6ff;
+  font-weight: 400;
+}
+
+.subtitle {
+  max-width: 330px;
+  color: #b3c4df;
+  font-size: 13px;
+  line-height: 2;
+  margin: 20px auto 30px;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #91c6ff65;
+  background: #8ac4ff12;
+  color: #eaf4ff;
+  padding: 14px 23px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #8ac4ff27;
+  border-color: #9bcfff;
+  transform: translateY(-2px);
+}
+
+.scroll {
+  margin-top: 65px;
+  color: #8199bc;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+section {
+  max-width: 760px;
+  margin: auto;
+  padding: 75px 24px;
+}
+
+.section-label { text-align: center; }
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: clamp(36px, 8vw, 55px);
+  margin: 16px 0 35px;
+}
+
+.poem {
+  border-top: 1px solid #ffffff18;
+  border-bottom: 1px solid #ffffff18;
+  padding: 35px 8px;
+  text-align: center;
+}
+
+.poem p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(19px, 4.5vw, 24px);
+  line-height: 1.85;
+  color: #dce9ff;
+  margin: 0 0 27px;
+}
+
+.poem p em { color: #94caff; }
+
+.poem .verse-title {
+  color: #8bbfff;
+  font-style: italic;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 21px;
+  color: #8bbfff;
+  margin-top: 40px;
+}
+
+/* ---- Moments (videos) ---- */
+.moments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.moment {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.moment video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+  border: 1px solid #8fc6ff30;
+  background: #030917;
+  box-shadow: 0 0 40px #559fff24;
+}
+
+.moment p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: #a8ceff;
+  margin: 14px 0 0;
+  line-height: 1.6;
+}
+
+.music-card {
+  border: 1px solid #8fc6ff30;
+  border-radius: 22px;
+  padding: 30px 22px;
+  text-align: center;
+  background: linear-gradient(140deg, #18376480, #09172e90);
+}
+
+.disc {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle, #15294b 0, #15294b 4px,
+    #233f69 5px, #0b1931 7px
+  );
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 35px #559fff24;
+}
+
+.disc span {
+  display: grid;
+  place-items: center;
+  background: #8fc6ff;
+  color: #06132d;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.disc.playing {
+  animation: spin 5s linear infinite;
+}
+
+.music-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.music-card p {
+  color: #a6bad7;
+  font-size: 12px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.music-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.music-status {
+  color: #8bbfff;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+
+.note {
+  text-align: center;
+  padding: 35px 22px;
+  border-radius: 20px;
+  background: #8fc6ff0b;
+  border: 1px solid #8fc6ff1c;
+}
+
+.note p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  line-height: 1.8;
+  color: #dbe9ff;
+}
+
+.note small {
+  color: #8ebfff;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
+#surprise {
+  display: none;
+  margin-top: 25px;
+  color: #a8ceff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  line-height: 1.8;
+  animation: appear .8s ease;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px 45px;
+  color: #7e96b9;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 2;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes glow {
+  0%, 100% { opacity: .65; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.13); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="stars"></div>
+
+<nav>
+  <div class="brand">A LETTER IN BLUE</div>
+  <div class="nav-note">A little something ♡</div>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="eyebrow">For someone I met today</div>
+    <div class="heart">♡</div>
+
+    <h1>A Girl <em>in Blue.</em></h1>
+
+    <p class="subtitle">
+      Some meetings last a moment.
+      Some moments stay with you a little longer.
+      This one deserved a page of its own.
+    </p>
+
+    <a href="#ballad" class="btn">READ YOUR BALLAD ↓</a>
+
+    <div class="scroll">A LITTLE SOMETHING FOR YOU</div>
+  </div>
+
+  <section id="ballad" class="reveal">
+    <div class="section-label">01 — The Ballad</div>
+    <h2>Blue Looks Good on You</h2>
+
+    <div class="poem">
+      <p>
+        I met you today, just a moment ago,<br>
+        A face I had never seen, a smile I didn't know.<br>
+        Yet somewhere between hello and the passing of time,<br>
+        You became the inspiration behind these lines.
+      </p>
+
+      <p>
+        It's funny how life has its own little ways,<br>
+        Of making an ordinary moment stand out from the days.<br>
+        No grand introduction, no story rehearsed,<br>
+        Just a simple encounter that inspired a verse.
+      </p>
+
+      <p>
+        I won't pretend that I know you by heart,<br>
+        We've only just met; this is merely the start.<br>
+        But there's something quite lovely about the way you appear,<br>
+        A kind of quiet beauty that makes the world feel less severe.
+      </p>
+
+      <p>
+        Perhaps it's your smile, or the light in your eyes,<br>
+        Or the effortless charm you may not even realise.<br>
+        Perhaps it's the way you carry yourself without trying,<br>
+        Like a melody playing softly while the whole world keeps moving by.
+      </p>
+
+      <p>
+        And no, I'm not saying you've stolen my heart,<br>
+        Let's not give a new meeting a dramatic start.<br>
+        I'm simply a man who appreciates what he sees,<br>
+        And today, that appreciation came quite naturally.
+      </p>
+
+      <p class="verse-title">Now, let's talk about blue.</p>
+
+      <p>
+        The colour of oceans, of twilight skies,<br>
+        Of peaceful evenings and beautiful surprises.<br>
+        A colour that speaks without making a sound,<br>
+        The kind of quiet magic that's difficult to write down.
+      </p>
+
+      <p>
+        You told me it's your favourite, and somehow I smiled,<br>
+        Thinking how fitting it was, even for a little while.<br>
+        Because blue has a calmness, a beauty of its own,<br>
+        And perhaps that's why it feels different now that I've known you.
+      </p>
+
+      <p>
+        I used to think blue was just another shade,<br>
+        One among the countless colours the world had made.<br>
+        But now, when the evening sky takes on that hue,<br>
+        I might remember this day—and the girl who loves blue.
+      </p>
+
+      <p>
+        Not because I'm making promises beneath the moon,<br>
+        Or imagining forever after meeting you so soon.<br>
+        But because some little details have a beautiful way,<br>
+        Of making an ordinary memory worth keeping someday.
+      </p>
+
+      <p class="verse-title">And then there's the music.</p>
+
+      <p>
+        The Afrobeats kind, the rhythm that flows,<br>
+        The kind that lifts your spirit wherever it goes.<br>
+        A little Burna, some Wizkid in the air,<br>
+        A melody, a moment, and good vibes to share.
+      </p>
+
+      <p>
+        Perhaps one day we'll exchange a song or two,<br>
+        And I'll ask which Afrobeats track sounds most like you.<br>
+        You might laugh at my choices, or question my taste,<br>
+        But at least we'll have a moment neither of us had to waste.
+      </p>
+
+      <p>
+        Maybe you'll recommend a song I haven't heard,<br>
+        And I'll remember the melody more than the words.<br>
+        Maybe we'll talk about music until the evening grows late,<br>
+        Or simply exchange playlists—no pressure, no fate.
+      </p>
+
+      <p class="verse-title">There's no hurry to the story.</p>
+
+      <p>
+        Because getting to know someone shouldn't feel like a race,<br>
+        There's beauty in allowing things to happen at their own pace.<br>
+        No need for big promises or words that sound profound,<br>
+        Sometimes the nicest connections begin with simply being around.
+      </p>
+
+      <p>
+        So here's a little ballad, wrapped in midnight blue,<br>
+        A few honest words inspired by meeting you.<br>
+        Not a declaration of love, not a question you must answer,<br>
+        Just a thoughtful little gesture with a touch of romance and laughter.
+      </p>
+
+      <p>
+        If this poem makes you smile, then it's done what I intended,<br>
+        A small piece of today's story, sweetly written and sent.<br>
+        And if you read it again with a smile you can't explain,<br>
+        I'll consider that a lovely little bonus to my day.
+      </p>
+
+      <p>
+        So keep being yourself; there's no need to do more,<br>
+        You don't have to be extraordinary to be worth writing for.<br>
+        And if our paths cross again, as they sometimes do,<br>
+        I'll be glad to say hello to the girl who loves blue.
+      </p>
+
+      <p>
+        Until then, let your music play and your good days multiply,<br>
+        May you find little reasons to smile beneath every sky.<br>
+        And should a certain poem ever cross your mind,<br>
+        Remember, it was written by someone who thought meeting you<br>
+        was a rather lovely part of his time.
+      </p>
+
+      <div class="signature">
+        No expectations, no hurried story to pursue—<br>
+        Just a little midnight poetry, written in blue. 💙
+        <br><br>
+        — Mr Reaper
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-label">02 — Moments</div>
+    <h2>Little Pieces of Today</h2>
+
+    <div class="moments">
+      <figure class="moment" style="margin:0">
+        <video controls playsinline preload="metadata" src="videos/VID-20261009-WA0700.mp4"></video>
+        <p>A bright afternoon, and a smile worth keeping.</p>
+      </figure>
+
+      <figure class="moment" style="margin:0">
+        <video controls playsinline preload="metadata" src="videos/VID-20261009-WA0702.mp4"></video>
+        <p>A moment that deserved a second look.</p>
+      </figure>
+
+      <figure class="moment" style="margin:0">
+        <video controls playsinline preload="metadata" src="videos/VID-20261009-WA0703.mp4"></video>
+        <p>Another little piece of the story.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-label">03 — Your Kind of Vibe</div>
+    <h2>Let the Rhythm Speak</h2>
+
+    <div class="music-card">
+      <div class="disc" id="disc">
+        <span>♫</span>
+      </div>
+
+      <h3>Blue Hour Frequencies</h3>
+
+      <p>
+        Smooth Afrobeats. Late-night feelings.<br>
+        A little rhythm for a girl worth writing about.
+      </p>
+
+      <div class="music-controls">
+        <button class="btn" id="playBtn">
+          ▶ PLAY THE VIBE
+        </button>
+
+        <a
+          class="btn"
+          href="https://www.youtube.com/results?search_query=smooth+romantic+afrobeats+playlist"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          EXPLORE AFROBEATS ↗
+        </a>
+      </div>
+
+      <div class="music-status" id="musicStatus">
+        Your soundtrack is waiting. Tap play to begin.
+      </div>
+
+      <audio id="music" preload="none"></audio>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-label">04 — Before You Go</div>
+    <h2>One Last Thing</h2>
+
+    <div class="note">
+      <p>
+        I don't know where this little story goes,<br>
+        and I'm in no hurry to decide.<br>
+        I just know that meeting you today<br>
+        was a beautiful part of my day.
+      </p>
+
+      <button class="btn" id="surpriseBtn">
+        THERE'S A LITTLE MORE ♡
+      </button>
+
+      <div id="surprise">
+        Maybe tomorrow you'll forget this page.<br>
+        Maybe you'll smile when you remember it.<br>
+        Either way, I hope life gives you<br>
+        as many reasons to smile as you deserve. 💙
+        <br><br>
+        And if you ever want to share your favourite song,<br>
+        I'd be happy to listen.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  SOME MOMENTS DESERVE TO BE REMEMBERED<br><br>
+  MADE IN MIDNIGHT BLUE · WITH A LITTLE FEELING ♡<br><br>
+  — MR REAPER
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.10 });
+
+document.querySelectorAll('.reveal').forEach(section => {
+  observer.observe(section);
+});
+
+const surpriseBtn = document.getElementById('surpriseBtn');
+const surprise = document.getElementById('surprise');
+
+surpriseBtn.addEventListener('click', () => {
+  surprise.style.display = 'block';
+  surpriseBtn.textContent = 'A LITTLE WISH FOR YOU 💙';
+  surpriseBtn.disabled = true;
+});
+
+// Pause any playing clip when another one starts
+document.querySelectorAll('.moment video').forEach(v => {
+  v.addEventListener('play', () => {
+    document.querySelectorAll('.moment video').forEach(o => {
+      if (o !== v) o.pause();
+    });
+  });
+});
+
+const playBtn = document.getElementById('playBtn');
+const music = document.getElementById('music');
+const disc = document.getElementById('disc');
+const musicStatus = document.getElementById('musicStatus');
+
+let musicStarted = false;
+
+playBtn.addEventListener('click', async () => {
+  if (musicStarted && !music.paused) {
+    music.pause();
+    playBtn.textContent = '▶ RESUME MUSIC';
+    musicStatus.textContent = 'Paused. Your vibe is waiting.';
+    disc.classList.remove('playing');
+    return;
+  }
+
+  if (!music.src) {
+    musicStatus.textContent =
+      'Choose a track from the Afrobeats link to listen.';
+
+    window.open(
+      'https://www.youtube.com/results?search_query=smooth+romantic+afrobeats+playlist',
+      '_blank',
+      'noopener'
+    );
+    return;
+  }
+
+  try {
+    await music.play();
+    musicStarted = true;
+    playBtn.textContent = 'Ⅱ PAUSE MUSIC';
+    musicStatus.textContent = 'Now playing. Enjoy the rhythm. 💙';
+    disc.classList.add('playing');
+  } catch {
+    musicStatus.textContent =
+      'Music could not start. Try the Afrobeats link instead.';
+  }
+});
+
+music.addEventListener('ended', () => {
+  playBtn.textContent = '▶ PLAY THE VIBE';
+  disc.classList.remove('playing');
+});
+
+music.addEventListener('pause', () => {
+  disc.classList.remove('playing');
+});
+</script>
+</body>
+</html>
